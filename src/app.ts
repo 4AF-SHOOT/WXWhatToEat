@@ -1,18 +1,19 @@
-import { Component, PropsWithChildren } from 'react'
-import './app.scss'
+import { FC, useEffect } from 'react';
+import './app.scss';
 
-class App extends Component<PropsWithChildren> {
+interface IApp {
+  children?: any;
+}
 
-  componentDidMount () {}
+const App:FC<IApp>  = props => {
+  useEffect(() => {
+    wx.cloud.init({
+      env: 'cloudtaosu-6g6zzl8k54cf61f4'
+    })
+  }, [])
 
-  componentDidShow () {}
+  return props.children
 
-  componentDidHide () {}
-
-  // this.props.children 是将要会渲染的页面
-  render () {
-    return this.props.children
-  }
 }
 
 export default App

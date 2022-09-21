@@ -1,0 +1,31 @@
+.whatToEat {
+  .tagWrap {
+    display: flex;
+    // justify-content: center;
+    // align-items: center;
+  }
+  .tag {
+    box-sizing: border-box;
+    border: 1px solid #78a4f4;
+    color: #78a4f4;
+    padding: 2px 16px;
+    border-radius: 30px;
+    height: 50px;
+    line-height: 46px;
+    display: inline-block;
+    margin-right: 10px;
+    // font-size: 20px;
+  }
+  .eatBtn {
+    width: 180px;
+  }
+  .addTag {
+    display: inline-block;
+    background-color: #78a4f4;
+    color: #fff;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+  }
+}

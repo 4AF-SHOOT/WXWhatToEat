@@ -1,32 +1,67 @@
-import { Component, PropsWithChildren } from 'react'
-import { View, Text } from '@tarojs/components'
-import { AtButton } from 'taro-ui'
+import { FC, useEffect, useState } from 'react'
+import { View, Text, Input } from '@tarojs/components'
+import { AtButton, AtInput } from 'taro-ui'
 
 import "taro-ui/dist/style/components/button.scss" // 按需引入
+import "taro-ui/dist/style/components/input.scss" // 按需引入
+
+import Modal from './Modal';
 import './index.scss'
 
-export default class Index extends Component<PropsWithChildren> {
-
-  componentWillMount () { }
-
-  componentDidMount () { }
-
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
-
-  render () {
-    return (
-      <View className='index'>
-        <Text>Hello world!</Text>
-        <AtButton type='primary'>I need Taro UI</AtButton>
-        <Text>Taro UI 支持 Vue 了吗？</Text>
-        <AtButton type='primary' circle={true}>支持</AtButton>
-        <Text>共建？</Text>
-        <AtButton type='secondary' circle={true}>来</AtButton>
-      </View>
-    )
-  }
+interface IIndex {
+  children?: any;
 }
+
+const Index:FC<IIndex>  = props => {
+  const [foods, setFoods] = useState([]);
+  const [isShow, setIsShow] = useState(false);
+  const [inpVal, setInpVal] = useState('123');
+
+  useEffect(() => {
+    getFoods();
+  }, [])
+
+  const getFoods = async () => {
+    try {
+      const cloudResult = await wx.cloud.callFunction({
+        name: 'getFoods'
+      })
+
+      console.log("success-------------", cloudResult.result)
+      setFoods(cloudResult.result.foods);
+    } catch (error) {
+      console.log("error-------------", error)
+    }
+  }
+
+  const handleClick = () => {
+    console.log('click')
+    setIsShow(true);
+  }
+
+  const handleChange = (val) => {
+    console.log(val, 'val')
+    return val;
+  }
+
+  return <View className='whatToEat'>
+    <Modal isShow={isShow} setIsShow={setIsShow} />
+    <View className='tagWrap'>
+      {
+        foods.map((it, ix) => {
+          return <Text
+            key={ix}
+            className='tag'
+            style={{color: 'red', borderColor: 'red'}}
+          >{it.food_name}</Text>
+        })
+      }
+      <Text onClick={handleClick} className='addTag'>+</Text>
+    </View>
+    <Text>今天吃啥？</Text>
+    <AtButton type='primary' circle={true} size='small' full={false} className='eatBtn'>看看吃啥</AtButton>
+  </View>
+
+}
+
+export default Index

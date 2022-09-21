@@ -44,7 +44,10 @@ const config = {
           generateScopedName: '[name]__[local]___[hash:base64:5]'
         }
       }
-    }
+    },
+    optimizeMainPackage: {
+      enable: true
+    },
   },
   h5: {
     publicPath: '/',

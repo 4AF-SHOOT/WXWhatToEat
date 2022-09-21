@@ -2,7 +2,7 @@
   "miniprogramRoot": "./",
   "projectname": "WXWhatToEat",
   "description": "今天吃什么",
-  "appid": "touristappid",
+  "appid": "wxe22e48647c2bee53",
   "setting": {
     "urlCheck": true,
     "es6": false,
