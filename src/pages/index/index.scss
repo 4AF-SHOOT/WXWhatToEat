@@ -51,7 +51,8 @@
       margin-left: 24px;
     }
     .modalConfirmBtn {
-      width: 80px;
+      width: fit-content;
+      padding: 0 20px;
       margin-top: 40px;
     }
   }
@@ -64,4 +65,8 @@
   .at-float-layout__container {
     min-height: unset !important;
   }
+}
+.whatToEatLoadingWrap {
+  position: relative;
+  height: 1200px;
 }

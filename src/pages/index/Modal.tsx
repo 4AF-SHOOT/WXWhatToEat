@@ -3,7 +3,6 @@ import { Text, Input } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import { AtFloatLayout, AtInput, AtButton } from 'taro-ui'
 import "taro-ui/dist/style/components/float-layout.scss" // 按需引入
-import "taro-ui/dist/style/components/loading.scss" // 按需引入
 
 interface IModal {
   isShow: boolean;
