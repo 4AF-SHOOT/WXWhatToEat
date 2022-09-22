@@ -1,8 +1,15 @@
 .whatToEat {
   .tagWrap {
     display: flex;
-    // justify-content: center;
-    // align-items: center;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    margin-top: 48px;
+    padding: 20px;
+    height: 360px;
+    overflow: auto;
+    .tag {
+      margin: 8px;
+    }
   }
   .tag {
     box-sizing: border-box;
@@ -14,10 +21,17 @@
     line-height: 46px;
     display: inline-block;
     margin-right: 10px;
-    // font-size: 20px;
   }
   .eatBtn {
     width: 180px;
+    margin-top: 100px;
+  }
+  .whatToEat_randomText {
+    display: block;
+    font-size: 60px;
+    text-align: center;
+    margin: 20px;
+    margin-top: 50px;
   }
   .addTag {
     display: inline-block;
@@ -27,5 +41,27 @@
     width: 50px;
     height: 50px;
     text-align: center;
+    margin: 8px;
+  }
+  .eatModal {
+    .modalDesc {
+      display: inline-block;
+      color: #bfbfbf;
+      margin: 8px 0;
+      margin-left: 24px;
+    }
+    .modalConfirmBtn {
+      width: 80px;
+      margin-top: 40px;
+    }
+  }
+  .at-float-layout .layout-body__content {
+    min-height: 280px !important;
+  }
+  .at-float-layout .layout-body {
+    min-height: unset !important;
+  }
+  .at-float-layout__container {
+    min-height: unset !important;
   }
 }

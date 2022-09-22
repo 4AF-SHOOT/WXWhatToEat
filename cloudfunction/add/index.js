@@ -5,8 +5,11 @@ cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV }) // 使用当前云环境
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-  let { foods } = event
-  const wxContext = cloud.getWXContext()
+  let { foods } = event;
+
+  cloud.database().collection('foods').add({
+    data: foods
+  })
 
   return {
     foods: foods
